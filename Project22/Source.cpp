@@ -3,12 +3,13 @@
 #include <cstring>
 #include<cctype>
 using namespace std;
-int determiner(char phrase[]);
-void traslateToPiglatin(char phrase[50]);
+
+int determiner(char phrase[]); // This function determines what kind of phrase is enterned
+void traslateToPiglatin(char phrase[50]); // translate the phrase to pilatin
 int main() {
 
-	char repeat;
-	char phrase[50];
+	char repeat; // captures the return of the user if they want to enter another phrase or not
+	char phrase[50]; // stores the phrase entered by user
 	do
 	{
 		char phrase[50] = { ' ' };
