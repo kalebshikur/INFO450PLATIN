@@ -10,10 +10,9 @@ int main() {
 
 	char repeat; // captures the return of the user if they want to enter another phrase or not
 	char phrase[50]; // stores the phrase entered by user
-	do
+	
+	do //this loops gives the user multiple chances to input phrases
 	{
-		char phrase[50] = { ' ' };
-
 		cout << "Enter the word you want to translate to piglating" << endl;
 		cin.getline(phrase, 50);
 		traslateToPiglatin(phrase);
@@ -25,12 +24,14 @@ int main() {
 	system("pause");
 }
 
+// this fucntion takes the inputed string as an input and translate it to pilatin
 void traslateToPiglatin(char phrase[50]) {
+	// for two latered phrases
 	if (determiner(phrase) == 0) {
 		cout << "The traslated version:  " << phrase << endl;
 
 	}
-	else if (determiner(phrase)==1)
+	else if (determiner(phrase)==1) // for phrases which start with vowel
 	{
 		for (int i = 3; i <= strlen(phrase); i++)
 		{
@@ -43,7 +44,7 @@ void traslateToPiglatin(char phrase[50]) {
 			}
 		}
 	}
-	else if (determiner(phrase)==2)
+	else if (determiner(phrase)==2) // for phrases which start with consonant
 	{
 		for (int i = 3; i <= strlen(phrase); i++)
 		{
@@ -59,14 +60,15 @@ void traslateToPiglatin(char phrase[50]) {
 		}
 
 	}
-	else
+	else   // for every other type of phrase
 	{
 		cout << determiner(phrase) << " ---  The input is invalid  ---" << endl;
 	}
 }
 
+// this function determines what kind of phrase and intered and returns an integer
 int determiner(char phrase[]) {
-	if (phrase[2] == '\0') {
+	if (strlen(phrase)<=2) {
 		return 0;
 	}
 	else if (phrase[0] == 'a' || phrase[0] == 'e' || phrase[0] == 'i' || phrase[0] == 'o' || phrase[0] == 'u' || phrase[0] == 'A' ||
